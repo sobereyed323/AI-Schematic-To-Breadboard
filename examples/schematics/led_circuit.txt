@@ -1,0 +1,50 @@
+Title: Simple LED Circuit
+Difficulty: Beginner
+
+Description:
+A basic LED circuit demonstrating current-limiting resistor usage with a 5V power supply.
+This is the classic "Hello World" of electronics, perfect for beginners learning breadboard basics.
+
+Components:
+- 1x Red LED (5mm, 2V forward voltage, 20mA max current)
+- 1x 220Ω Resistor (1/4W, 5% tolerance)
+- 1x 5V DC Power Supply (or USB power)
+- 2x Jumper wires (red and black recommended)
+
+Circuit Details:
+- Power: 5V DC
+- LED Forward Voltage: ~2V
+- LED Current: ~13.6mA (safe for standard 20mA LEDs)
+- Resistor calculation: R = (Vs - Vf) / I = (5V - 2V) / 0.0136A ≈ 220Ω
+
+Connections:
+1. Power (+5V) → Resistor (one end)
+2. Resistor (other end) → LED Anode (longer lead, positive)
+3. LED Cathode (shorter lead, negative) → Ground (0V)
+
+Safety Notes:
+- Never connect LED directly to power without a current-limiting resistor
+- Ensure correct LED polarity (anode to resistor, cathode to ground)
+- Use appropriate power supply voltage (5V recommended for this example)
+
+Learning Objectives:
+1. Understanding LED polarity and identification
+2. Current-limiting resistor purpose and calculation
+3. Basic breadboard power rail usage
+4. Safe prototyping practices
+
+Testing:
+- LED should light up when circuit is powered
+- If LED doesn't light: check polarity, connections, and power supply
+- If LED is very dim or very bright: verify resistor value
+
+Expected Breadboard Position:
+- Place LED in middle section (around row 15-20)
+- Place resistor adjacent to LED (horizontal orientation)
+- Use power rails for +5V and GND connections
+
+Notes:
+- This circuit is safe for beginners
+- Can be modified with different LED colors (adjust resistor accordingly)
+- Forms the basis for more complex LED projects
+- Actual image file (led_circuit.png) should be added to this directory

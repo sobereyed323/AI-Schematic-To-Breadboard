@@ -1,0 +1,104 @@
+Title: 555 Timer Astable Circuit
+Difficulty: Intermediate
+
+Description:
+Classic 555 timer IC configured as an astable multivibrator (free-running oscillator).
+Creates a square wave output that blinks an LED at approximately 1 Hz.
+This circuit demonstrates timing circuits, IC usage, and capacitor charging/discharging.
+
+Components:
+- 1x 555 Timer IC (NE555, LM555, or equivalent, 8-pin DIP package)
+- 1x 10µF Electrolytic Capacitor (C1, 16V or higher rating)
+- 1x 100nF Ceramic Capacitor (C2, decoupling capacitor)
+- 1x 10kΩ Resistor (R1, 1/4W)
+- 1x 100kΩ Resistor (R2, 1/4W)
+- 1x 220Ω Resistor (R3, for LED current limiting)
+- 1x Red LED (5mm, standard)
+- 1x 9V Battery or DC Power Supply
+- Jumper wires
+
+Circuit Details:
+- Operating Voltage: 9V DC
+- Frequency: ~1 Hz (calculated)
+- Duty Cycle: ~52% (slightly asymmetric)
+- Output: Square wave, LED blinks on/off
+
+Pin Connections (555 Timer):
+- Pin 1 (GND): Connect to ground
+- Pin 2 (TRIGGER): Connect to Pin 6
+- Pin 3 (OUTPUT): Connect to LED + R3
+- Pin 4 (RESET): Connect to Vcc (+9V)
+- Pin 5 (CONTROL): Connect to C2 (100nF) to ground
+- Pin 6 (THRESHOLD): Connect to Pin 2 and R2/C1 junction
+- Pin 7 (DISCHARGE): Connect to R1/R2 junction
+- Pin 8 (Vcc): Connect to +9V
+
+Timing Calculations:
+- Time HIGH (t1) = 0.693 × (R1 + R2) × C1
+- Time LOW (t2) = 0.693 × R2 × C1
+- Period (T) = t1 + t2 = 0.693 × (R1 + 2×R2) × C1
+- Frequency (f) = 1 / T
+
+With R1=10kΩ, R2=100kΩ, C1=10µF:
+- t1 ≈ 0.76 seconds
+- t2 ≈ 0.69 seconds
+- T ≈ 1.45 seconds
+- f ≈ 0.69 Hz (close to 1 Hz)
+
+Safety Notes:
+- Observe electrolytic capacitor polarity (C1 has + and - markings)
+- Ensure 555 IC orientation is correct (notch or dot indicates pin 1)
+- Do not exceed 15V power supply (555 max rating is typically 16V)
+- Ensure decoupling capacitor (C2) is close to IC power pins
+
+Learning Objectives:
+1. Understanding IC placement and pin numbering
+2. Astable multivibrator operation and timing
+3. Capacitor types and their applications
+4. Importance of decoupling capacitors
+5. Breadboard power distribution
+
+Testing:
+- LED should blink on and off repeatedly at roughly 1 Hz
+- If not blinking: check all connections, especially pins 2, 6, and 7
+- If blinking too fast/slow: verify R1, R2, and C1 values
+- Use multimeter to verify voltages at key pins
+
+Expected Breadboard Position:
+- Place 555 IC straddling the center gap (pins on both sides)
+- Orient IC with pin 1 at top-left (look for notch or dot)
+- Place capacitors near IC pins
+- Use power rails for Vcc and GND
+- LED placement away from IC for visibility
+
+Breadboard Layout Tips:
+1. Place IC first, carefully aligned
+2. Add power connections to pins 1 and 8
+3. Add decoupling capacitor (C2) near power pins
+4. Connect timing components (R1, R2, C1)
+5. Wire internal connections (pins 2-6, pin 4 to Vcc)
+6. Finally add output LED circuit
+
+Notes:
+- Pin numbering: counterclockwise from pin 1 (notch at top)
+- C2 (100nF) stabilizes internal voltage reference
+- C1 polarity matters! Negative leg to ground
+- This is a non-retriggerable astable configuration
+- Can adjust frequency by changing R1, R2, or C1
+- For 50% duty cycle, use diode across R2
+
+Common Issues:
+- IC gets hot: check for short circuits, verify pin 1 to GND
+- LED always on/off: check pin 3 connection and LED polarity
+- Erratic behavior: add or replace decoupling capacitor C2
+- No oscillation: verify pins 2 and 6 are connected together
+
+Modifications:
+- Increase frequency: use smaller C1 or smaller resistors
+- Decrease frequency: use larger C1 or larger resistors
+- Add potentiometer in place of R2 for adjustable frequency
+- Connect speaker instead of LED for audio tone generator
+
+Image Note:
+Actual schematic image (555_timer_circuit.png) should be added to this directory.
+Image should clearly show all pin connections and component values.

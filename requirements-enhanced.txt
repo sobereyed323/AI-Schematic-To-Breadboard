@@ -1,0 +1,38 @@
+# Enhanced Dependencies for CircuitNet to Breadboard Conversion
+# Install these in addition to the base requirements.txt
+
+# AI and Machine Learning
+openai>=1.0.0
+pillow>=10.0.0
+
+# Visualization and Graphics
+matplotlib>=3.7.0
+schemdraw>=0.15
+
+# Document Generation
+reportlab>=4.0.0
+markdown>=3.5.0
+
+# Web Framework
+streamlit>=1.28.0
+flask>=3.0.0
+
+# Environment Management
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Code Quality
+black>=23.0.0
+flake8>=6.1.0
+mypy>=1.7.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Additional Utilities
+tqdm>=4.66.0
+requests>=2.31.0
