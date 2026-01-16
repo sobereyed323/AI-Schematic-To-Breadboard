@@ -181,8 +181,8 @@ class TestBreadboardLayout:
         component2 = Component(type="led")
         
         self.layout.place_component(component1, (10, 15))
-        self.layout.place_component(component2, (10, 20))
-        self.layout.route_connection((10, 16), (10, 20))
+        self.layout.place_component(component2, (15, 15))
+        self.layout.route_connection((10, 17), (15, 14))
         
         score = self.layout.optimize_layout(iterations=10)
         
@@ -197,9 +197,9 @@ class TestBreadboardLayout:
         component3 = Component(type="led")
         
         self.layout.place_component(component1, (10, 15))
-        self.layout.place_component(component2, (10, 20))
+        self.layout.place_component(component2, (12, 15))
         self.layout.place_component(component3, (15, 15))
-        self.layout.route_connection((10, 16), (10, 20))
+        self.layout.route_connection((10, 17), (12, 14))
         
         stats = self.layout.get_statistics()
         
@@ -307,8 +307,8 @@ class TestBreadboardVisualizer:
         component2 = Component(type="led")
         
         self.layout.place_component(component1, (10, 15))
-        self.layout.place_component(component2, (10, 20))
-        self.layout.route_connection((10, 16), (10, 20), color="red")
+        self.layout.place_component(component2, (15, 15))
+        self.layout.route_connection((10, 17), (15, 14), color="red")
     
     def test_visualizer_initialization(self):
         """Test visualizer initialization."""
@@ -357,8 +357,8 @@ class TestInstructionGenerator:
         led = Component(type="led")
         
         self.layout.place_component(resistor, (10, 15))
-        self.layout.place_component(led, (10, 20))
-        self.layout.route_connection((10, 16), (10, 20), color="red")
+        self.layout.place_component(led, (15, 15))
+        self.layout.route_connection((10, 17), (15, 14), color="red")
     
     def test_generator_initialization(self):
         """Test instruction generator initialization."""
@@ -462,10 +462,12 @@ class TestIntegration:
         led = Component(type="led")
         
         layout.place_component(resistor, (10, 15))
-        layout.place_component(led, (10, 20))
+        layout.place_component(led, (15, 15))
         
-        # Route connections
-        layout.route_connection((10, 16), (10, 20), color="red")
+        # Route connections (connect from resistor end to LED start)
+        # Resistor occupies (10,15) and (10,16), LED occupies (15,15) and (15,16)
+        # Connect a point near the resistor to a point near the LED
+        layout.route_connection((10, 17), (15, 14), color="red")
         
         # Generate visualization
         visualizer = BreadboardVisualizer(layout)
